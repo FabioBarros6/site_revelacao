@@ -1,33 +1,49 @@
+/* Estilos globais */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #f8f8f8;
   color: #333;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Página principal */
 .container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   text-align: center;
-  padding: 1rem;
+  padding: 2rem 1rem;
+  flex-wrap: wrap;
 }
 
-h1 {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  opacity: 0;
-  animation: fadeIn 1.5s forwards;
-  text-align: justify;
+h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  word-break: break-word;
+  max-width: 100%;
 }
 
-span,
+h2 span {
+  display: block;
+  font-size: 1.8rem;
+  margin-top: 0.5rem;
+}
+
 p {
-  font-size: 2rem;
-  text-align: justify;
+  font-size: 1.4rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 1rem 0;
 }
 
 .botao-revelar {
@@ -45,26 +61,16 @@ p {
   transform: scale(1.1);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* Página de revelação */
 .pagina-revelar {
   background: linear-gradient(to bottom, #e6e6e6, #c2b0d3);
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   text-align: center;
-  padding: 1rem;
+  padding: 2rem 1rem;
   animation: slideUp 1.5s ease-out;
 }
 
@@ -73,12 +79,18 @@ p {
   margin-bottom: 1rem;
 }
 
-.pagina-revelar img {
-  max-width: 80%;
-  border-radius: 20px;
-  margin-top: 1rem;
+.pagina-revelar p {
+  font-size: 1.8rem;
 }
 
+.pagina-revelar img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  margin-top: 1.5rem;
+}
+
+/* Animação de entrada */
 @keyframes slideUp {
   from {
     transform: translateY(100vh);
@@ -88,20 +100,61 @@ p {
   }
 }
 
+/* Responsividade */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
+  h2 {
+    font-size: 2.2rem;
+  }
+
+  h2 span {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1.2rem;
   }
 
   .botao-revelar {
     font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
   }
 
   .pagina-revelar h2 {
     font-size: 3rem;
   }
 
+  .pagina-revelar p {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h2 span {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .botao-revelar {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .pagina-revelar h2 {
+    font-size: 2.2rem;
+  }
+
+  .pagina-revelar p {
+    font-size: 1.2rem;
+  }
+
   .pagina-revelar img {
-    max-width: 100%;
+    max-width: 90%;
   }
 }
